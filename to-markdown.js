@@ -13,6 +13,10 @@ function toMarkdown(options) {
 
   return {
     unsafe: [
+	  // A temporary solution for `ReactElement<any, string | JSXElementConstructor<any>>`
+	  {character: '>', before: '[A-Za-z!/?]', inConstruct: 'tableCell'},
+      {character: '>', before: '[>]', inConstruct: 'tableCell'},
+	  
       {character: '\r', inConstruct: 'tableCell'},
       {character: '\n', inConstruct: 'tableCell'},
       // A pipe, when followed by a tab or space (padding), or a dash or colon
